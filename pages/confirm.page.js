@@ -1,9 +1,9 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
 import tw from 'tailwind-styled-components'
-import Map from './Components/map'
+import Map from './Components/map.page'
 import { useRouter } from 'next/router'
-import RideSelector from './Components/rideSelector'
+import RideSelector from './Components/rideSelector.page'
 import Link from 'next/link'
 
 const Confirm = () => {
@@ -12,14 +12,6 @@ const Confirm = () => {
 
   const [pickupCoordinates, setPickupCoordinates] = useState([0, 0])
   const [dropoffCoordinates, setDropoffCoordinates] = useState([0, 0])
-
-  // const getFormatCordinateData = (data) => {
-  //   const {
-  //     data: { features },
-  //   } = data
-  //   const center = features[0]
-  //   return center
-  // }
 
   const getPickupCoordinates = (pickup) => {
     fetch(
@@ -54,12 +46,13 @@ const Confirm = () => {
   useEffect(() => {
     getPickupCoordinates(pickup)
     getDropoffCoordinates(dropoff)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
     <Wrapper>
       <ButtonConainer>
-        <Link href="/search">
+        <Link href="/search" passHref>
           <BackButton src="https://img.icons8.com/ios-filled/50/000000/left.png" />
         </Link>
       </ButtonConainer>

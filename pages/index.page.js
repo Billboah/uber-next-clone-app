@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import tw from 'tailwind-styled-components'
-import Map from './Components/map'
+import Map from './Components/map.page'
 import Link from 'next/link'
 import { auth } from '../firebase'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
